@@ -67,7 +67,12 @@ namespace SnakeBite
 
             // << Connect to the server >>
 
-            GamecloudManager.Instance.askEvent("", "");
+            string gainhash = "hgggbm1fgktke29";
+            string askhash = "t9vcydmqs4u3ow29";
+            string characterId = "TestCharacter33";
+            string playerId = "TestPlayer88";
+
+            GamecloudManager.Instance.askEvent(askhash, playerId);
         }
 
         /// <summary>

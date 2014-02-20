@@ -47,14 +47,15 @@ namespace Gamecloud
 		/// <summary>
 		/// Creates the Gamecloud call for asking data in a proper JSON format
 		/// </summary>
-		/// <returns>The proper HashTable to send to Gamecloud</returns>
+		/// <returns>The proper Dictionary to send to Gamecloud</returns>
 		/// <param name="hash">The hash for the given query</param>
 		/// <param name="playerId">Player identifier.</param>
 		/// <param name="characterId">Character identifier.</param>
-		protected Hashtable createCall(string hash, string playerId, string characterId) 
+		protected Dictionary<string, string> createCall(string hash, string playerId, string characterId) 
 		{
-			// Create the hash table
-			Hashtable data = new Hashtable();
+            // Create the Dictionary
+            Dictionary<string, string> data = new Dictionary<string, string>();
+
 			// Create the callType
 			data.Add("callType", "gameDataSave");
 			// Add the authkey
@@ -63,17 +64,27 @@ namespace Gamecloud
 			data.Add("hash", hash);
 
 			// If there is playerId
-			if (playerId != null) 
-			{
-				// Add the player ID
-				data.Add("playerId", playerId);
-			}
+            if (playerId != null)
+            {
+                // Add the player ID
+                data.Add("playerId", playerId);
+            }
+            // Otherwise, make it just empty string
+            else
+            {
+                data.Add("playerId", "");
+            }
 			// If the characterId exists
-			if (characterId != null) 
-			{
-				// Add the character ID
-				data.Add("characterId", characterId);
-			}
+            if (characterId != null)
+            {
+                // Add the character ID
+                data.Add("characterId", characterId);
+            }
+            // Otherwise, make an empty string
+            else
+            {
+                data.Add("characterId", "");
+            }
 
 			// Then, return the data
 			return data;
@@ -89,9 +100,9 @@ namespace Gamecloud
 		{
 
 			// Create the call
-			Hashtable data = createCall(hash, playerId, characterId);
+			Dictionary<string, string> data = createCall(hash, playerId, characterId);
 			// Send the data to Gamecloud
-			SendData(data);
+			SendData(data, HandleResponse);
 		}
 
 		/// <summary>
@@ -103,9 +114,9 @@ namespace Gamecloud
 		public void gainItem(string hash, string playerId, string characterId) 
 		{
 			// Create the call
-			Hashtable data = createCall(hash, playerId, characterId);
+			Dictionary<string, string> data = createCall(hash, playerId, characterId);
 			// Send the data to Gamecloud
-			SendData(data);
+            SendData(data, HandleResponse);
 		}
 
 		/// <summary>
@@ -117,9 +128,9 @@ namespace Gamecloud
 		public void loseItem(string hash, string playerId, string characterId)
 		{
 			// Create the call
-			Hashtable data = createCall(hash, playerId, characterId);
+			Dictionary<string, string> data = createCall(hash, playerId, characterId);
 			// Send the data to Gamecloud
-			SendData(data);
+            SendData(data, HandleResponse);
 		}
 
 		/// <summary>
@@ -130,9 +141,9 @@ namespace Gamecloud
 		public void triggerEvent(string hash, string playerId)
 		{
 			// Create the call, no need for characterId so it is null
-			Hashtable data = createCall(hash, playerId, null);
+			Dictionary<string, string> data = createCall(hash, playerId, null);
 			// Send the data to Gamecloud
-			SendData(data);
+            SendData(data, HandleResponse);
 		}
 
 		/// <summary>
@@ -143,9 +154,9 @@ namespace Gamecloud
 		public void askEvent(string hash, string playerId)
 		{
 			// Create the call, no need for characterId so it is null
-			Hashtable data = createCall(hash, playerId, null);
+			Dictionary<string, string> data = createCall(hash, playerId, null);
 			// Send the data to Gamecloud
-			SendData(data);
+            SendData(data, HandleResponse);
 		}
 
 		/// <summary>
@@ -156,9 +167,9 @@ namespace Gamecloud
 		public void gainAchievement(string hash, string playerId) 
 		{
 			// Create the call, no need for characterId so it is null
-			Hashtable data = createCall(hash, playerId, null);
+			Dictionary<string, string> data = createCall(hash, playerId, null);
 			// Send the data to Gamecloud
-			SendData(data);
+            SendData(data, HandleResponse);
 		}
 
 		/// <summary>
@@ -169,9 +180,9 @@ namespace Gamecloud
 		public void askAchievement(string hash, string playerId)
 		{
 			// Create the call, no need for characterId so it is null
-			Hashtable data = createCall(hash, playerId, null);
+            Dictionary<string, string> data = createCall(hash, playerId, null);
 			// Send the data to Gamecloud
-			SendData(data);
+            SendData(data, HandleResponse);
 		}
 
 
@@ -181,41 +192,48 @@ namespace Gamecloud
 		/// <param name="data">
 		/// The properly formated data, done by using the createCall function with proper information.
 		/// </param>
-		public void SendData(Hashtable data) 
+		public void SendData(Dictionary<string, string> data, Action<IRestResponse> callback) 
 		{
             // Create the client
             var client = new RestClient();
             client.BaseUrl = GAMECLOUD_ADDRESS;
 
+            // Create the request and set the format properly
             var request = new RestRequest(Method.POST) ;
             request.RequestFormat = DataFormat.Json;
 
-            string gainhash = "hgggbm1fgktke29";
-            string askhash = "t9vcydmqs4u3ow29";
-            string characterId = "TestCharacter33";
-            string playerId = "TestPlayer88";
+             // Add the data to the request body
+            request.AddBody(new { 
+                callType = data["callType"], 
+                authkey = data["authkey"], 
+                hash = data["hash"], 
+                playerId = data["playerId"], 
+                characterId = data["characterId"] });
 
-             // Then, send it 
-            request.AddBody(new { callType = "gameDataSave", authkey = "", hash = askhash, playerId = playerId, characterId = characterId });
-
+            /*
             // Execute Async
             var asyncHandle = client.ExecuteAsync(request, response =>
             {
+                // And write the response
                 Console.WriteLine(response.Content);
-            });
+            });*/
 
+            client.ExecuteAsync(request, callback);
            
-            // Execute
+            // Execute Normally
             //IRestResponse response = client.Execute(request);
             //var content = response.Content;
 
             //Console.WriteLine(content);
- 
+		} // End of SendData()
 
 
-		}
+        public void HandleResponse(IRestResponse response)
+        {
+            // And write the response
+            Console.WriteLine(response.Content);
 
-       
+        }
 
         /// <summary>
         /// Thread safe singleton based on http://msdn.microsoft.com/en-us/library/ff650316.aspx
