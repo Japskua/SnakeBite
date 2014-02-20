@@ -72,8 +72,12 @@ namespace SnakeBite
             string characterId = "TestCharacter33";
             string playerId = "TestPlayer88";
 
-            GamecloudManager.Instance.askEvent(askhash, playerId);
+
+
+            GamecloudManager.Instance.askEvent(askhash, playerId, GamecloudCallbacks.Instance.HandleResponse);
         }
+
+
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.

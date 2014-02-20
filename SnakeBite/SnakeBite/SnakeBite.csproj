@@ -114,6 +114,7 @@
     <Compile Include="Cage.cs" />
     <Compile Include="EventClass.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="GamecloudCallbacks.cs" />
     <Compile Include="GamecloudManager.cs" />
     <Compile Include="Intro.cs" />
     <Compile Include="Letter.cs" />

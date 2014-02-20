@@ -96,13 +96,14 @@ namespace Gamecloud
 		/// <param name="hash">ASK hash</param>
 		/// <param name="playerId">Player identifier</param>
 		/// <param name="characterId">Character identifier</param>
-		public void askItems(string hash, string playerId, string characterId)
+        /// <param name="callback">The callback function</param>
+        public void askItems(string hash, string playerId, string characterId, Action<IRestResponse> callback)
 		{
 
 			// Create the call
 			Dictionary<string, string> data = createCall(hash, playerId, characterId);
 			// Send the data to Gamecloud
-			SendData(data, HandleResponse);
+			SendData(data, callback);
 		}
 
 		/// <summary>
@@ -111,12 +112,13 @@ namespace Gamecloud
 		/// <param name="hash">gainItem hash</param>
 		/// <param name="playerId">Player identifier.</param>
 		/// <param name="characterId">Character identifier.</param>
-		public void gainItem(string hash, string playerId, string characterId) 
+        /// <param name="callback">The callback function</param>
+        public void gainItem(string hash, string playerId, string characterId, Action<IRestResponse> callback) 
 		{
 			// Create the call
 			Dictionary<string, string> data = createCall(hash, playerId, characterId);
 			// Send the data to Gamecloud
-            SendData(data, HandleResponse);
+            SendData(data, callback);
 		}
 
 		/// <summary>
@@ -125,12 +127,13 @@ namespace Gamecloud
 		/// <param name="hash">loseItem hash.</param>
 		/// <param name="playerId">Player identifier.</param>
 		/// <param name="characterId">Character identifier.</param>
-		public void loseItem(string hash, string playerId, string characterId)
+        /// <param name="callback">The callback function</param>
+        public void loseItem(string hash, string playerId, string characterId, Action<IRestResponse> callback)
 		{
 			// Create the call
 			Dictionary<string, string> data = createCall(hash, playerId, characterId);
 			// Send the data to Gamecloud
-            SendData(data, HandleResponse);
+            SendData(data, callback);
 		}
 
 		/// <summary>
@@ -138,12 +141,13 @@ namespace Gamecloud
 		/// </summary>
 		/// <param name="hash">triggerEvent hash.</param>
 		/// <param name="playerId">Player identifier.</param>
-		public void triggerEvent(string hash, string playerId)
+        /// <param name="callback">The callback function</param>
+        public void triggerEvent(string hash, string playerId, Action<IRestResponse> callback)
 		{
 			// Create the call, no need for characterId so it is null
 			Dictionary<string, string> data = createCall(hash, playerId, null);
 			// Send the data to Gamecloud
-            SendData(data, HandleResponse);
+            SendData(data, callback);
 		}
 
 		/// <summary>
@@ -151,12 +155,13 @@ namespace Gamecloud
 		/// </summary>
 		/// <param name="hash">askEvent hash.</param>
 		/// <param name="playerId">Player identifier.</param>
-		public void askEvent(string hash, string playerId)
+        /// <param name="callback">The callback function</param>
+        public void askEvent(string hash, string playerId, Action<IRestResponse> callback)
 		{
 			// Create the call, no need for characterId so it is null
 			Dictionary<string, string> data = createCall(hash, playerId, null);
 			// Send the data to Gamecloud
-            SendData(data, HandleResponse);
+            SendData(data, callback);
 		}
 
 		/// <summary>
@@ -164,12 +169,13 @@ namespace Gamecloud
 		/// </summary>
 		/// <param name="hash">GainAchievememt hash.</param>
 		/// <param name="playerId">Player identifier.</param>
-		public void gainAchievement(string hash, string playerId) 
+        /// <param name="callback">The callback function</param>
+        public void gainAchievement(string hash, string playerId, Action<IRestResponse> callback) 
 		{
 			// Create the call, no need for characterId so it is null
 			Dictionary<string, string> data = createCall(hash, playerId, null);
 			// Send the data to Gamecloud
-            SendData(data, HandleResponse);
+            SendData(data, callback);
 		}
 
 		/// <summary>
@@ -177,12 +183,13 @@ namespace Gamecloud
 		/// </summary>
 		/// <param name="hash">ASK Achievement hash.</param>
 		/// <param name="playerId">Player identifier.</param>
-		public void askAchievement(string hash, string playerId)
+        /// <param name="callback">The callback for the network call</param>
+        public void askAchievement(string hash, string playerId, Action<IRestResponse> callback)
 		{
 			// Create the call, no need for characterId so it is null
             Dictionary<string, string> data = createCall(hash, playerId, null);
 			// Send the data to Gamecloud
-            SendData(data, HandleResponse);
+            SendData(data, callback);
 		}
 
 
@@ -210,30 +217,12 @@ namespace Gamecloud
                 playerId = data["playerId"], 
                 characterId = data["characterId"] });
 
-            /*
-            // Execute Async
-            var asyncHandle = client.ExecuteAsync(request, response =>
-            {
-                // And write the response
-                Console.WriteLine(response.Content);
-            });*/
 
+            // Execute the request in Async and send results to the callback
             client.ExecuteAsync(request, callback);
            
-            // Execute Normally
-            //IRestResponse response = client.Execute(request);
-            //var content = response.Content;
 
-            //Console.WriteLine(content);
 		} // End of SendData()
-
-
-        public void HandleResponse(IRestResponse response)
-        {
-            // And write the response
-            Console.WriteLine(response.Content);
-
-        }
 
         /// <summary>
         /// Thread safe singleton based on http://msdn.microsoft.com/en-us/library/ff650316.aspx
