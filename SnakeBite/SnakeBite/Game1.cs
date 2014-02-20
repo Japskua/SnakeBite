@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Gamecloud;
 
 namespace SnakeBite
 {
@@ -63,6 +64,10 @@ namespace SnakeBite
             music = Content.Load<SoundEffect>("SOUNDS\\birdies_bg");
             sound_bg = music.CreateInstance();
             sound_bg.IsLooped = true;
+
+            // << Connect to the server >>
+
+            GamecloudManager.Instance.askEvent("", "");
         }
 
         /// <summary>

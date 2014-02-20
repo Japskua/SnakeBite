@@ -26,7 +26,7 @@ namespace SnakeBite
         {
             using (StreamReader reader = new StreamReader("chaptures.txt"))
             {
-                Console.WriteLine("STORY OPENNED");
+                Console.WriteLine("STORY OPENED");
                 string line = reader.ReadLine();
                 while (line != null)
                 {
