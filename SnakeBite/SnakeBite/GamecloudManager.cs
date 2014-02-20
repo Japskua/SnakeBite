@@ -188,22 +188,28 @@ namespace Gamecloud
             client.BaseUrl = GAMECLOUD_ADDRESS;
 
             var request = new RestRequest(Method.POST) ;
+            request.RequestFormat = DataFormat.Json;
+
             string gainhash = "hgggbm1fgktke29";
             string askhash = "t9vcydmqs4u3ow29";
             string characterId = "TestCharacter33";
             string playerId = "TestPlayer88";
 
-            // Create the event object
-            EventClass eventClass = new EventClass(AUTH_TOKEN, askhash, playerId, characterId);
+             // Then, send it 
+            request.AddBody(new { callType = "gameDataSave", authkey = "", hash = askhash, playerId = playerId, characterId = characterId });
 
-            // Then, send it 
-            request.AddObject(eventClass);
+            // Execute Async
+            var asyncHandle = client.ExecuteAsync(request, response =>
+            {
+                Console.WriteLine(response.Content);
+            });
 
+           
             // Execute
-            IRestResponse response = client.Execute(request);
-            var content = response.Content;
+            //IRestResponse response = client.Execute(request);
+            //var content = response.Content;
 
-            Console.WriteLine(content);
+            //Console.WriteLine(content);
  
 
 

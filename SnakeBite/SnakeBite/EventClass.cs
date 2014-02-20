@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Gamecloud
 {
+    
     public class EventClass
     {
         public string playerId { get; set; }
