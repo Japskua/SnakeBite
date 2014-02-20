@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeBite", "SnakeBite\SnakeBite\SnakeBite.csproj", "{30A8CD4B-2635-4FDA-877B-203325D666BA}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "SnakeBiteContent", "SnakeBite\SnakeBiteContent\SnakeBiteContent.contentproj", "{9395F538-5649-4EB9-AA9F-D0480E72819F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30A8CD4B-2635-4FDA-877B-203325D666BA}.Debug|x86.ActiveCfg = Debug|x86
+		{30A8CD4B-2635-4FDA-877B-203325D666BA}.Debug|x86.Build.0 = Debug|x86
+		{30A8CD4B-2635-4FDA-877B-203325D666BA}.Release|x86.ActiveCfg = Release|x86
+		{30A8CD4B-2635-4FDA-877B-203325D666BA}.Release|x86.Build.0 = Release|x86
+		{9395F538-5649-4EB9-AA9F-D0480E72819F}.Debug|x86.ActiveCfg = Debug|x86
+		{9395F538-5649-4EB9-AA9F-D0480E72819F}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

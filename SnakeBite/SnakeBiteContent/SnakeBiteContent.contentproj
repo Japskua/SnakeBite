@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{9395F538-5649-4EB9-AA9F-D0480E72819F}</ProjectGuid>
+    <ProjectTypeGuids>{96E2B04D-8817-42c6-938A-82C39BA4D311};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
+    <ContentRootDirectory>Content</ContentRootDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>SnakeBiteContent</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.EffectImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.FBXImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.TextureImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.XImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.AudioImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CHAPTERS\1.txt">
+      <Name>1</Name>
+    </None>
+    <Compile Include="GRAPHICS\logo.png">
+      <Name>logo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\snake_body.png">
+      <Name>snake_body</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fonts\Arial.spritefont">
+      <Name>Arial</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+    <Compile Include="Fonts\Arial22.spritefont">
+      <Name>Arial22</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+    <Compile Include="Fonts\Arial42.spritefont">
+      <Name>Arial42</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\lower_jaw.png">
+      <Name>lower_jaw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\upper_jaw.png">
+      <Name>upper_jaw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\snake_head.png">
+      <Name>snake_head</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\bird.png">
+      <Name>bird</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\bird_leg.png">
+      <Name>bird_leg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\bg.jpg">
+      <Name>bg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\cage.png">
+      <Name>cage</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\button_exit.png">
+      <Name>button_exit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\button_start.png">
+      <Name>button_start</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\LETTERS\A.png">
+      <Name>A</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\B.png">
+      <Name>B</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\C.png">
+      <Name>C</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\D.png">
+      <Name>D</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\E.png">
+      <Name>E</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\F.png">
+      <Name>F</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\G.png">
+      <Name>G</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\H.png">
+      <Name>H</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\I.png">
+      <Name>I</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\J.png">
+      <Name>J</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\K.png">
+      <Name>K</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\L.png">
+      <Name>L</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\M.png">
+      <Name>M</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\N.png">
+      <Name>N</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\O.png">
+      <Name>O</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\P.png">
+      <Name>P</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\Q.png">
+      <Name>Q</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\R.png">
+      <Name>R</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\S.png">
+      <Name>S</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\T.png">
+      <Name>T</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\U.png">
+      <Name>U</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\V.png">
+      <Name>V</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\W.png">
+      <Name>W</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\X.png">
+      <Name>X</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\Y.png">
+      <Name>Y</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\Z.png">
+      <Name>Z</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\LETTERS\comma.png">
+      <Name>comma</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\dot.png">
+      <Name>dot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\emotion_mark.png">
+      <Name>emotion_mark</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\question_mark.png">
+      <Name>question_mark</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\LETTERS\space.png">
+      <Name>space</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\dock.png">
+      <Name>dock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\chapter.png">
+      <Name>chapter</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\NUMBERS\1.png">
+      <Name>1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\NUMBERS\2.png">
+      <Name>2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\NUMBERS\3.png">
+      <Name>3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\blood.png">
+      <Name>blood</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SOUNDS\birdie.wav">
+      <Name>birdie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="SOUNDS\dun_dun_dun.wav">
+      <Name>dun_dun_dun</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SOUNDS\birdies_bg.mp3">
+      <Name>birdies_bg</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SOUNDS\letter_down.wav">
+      <Name>letter_down</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SOUNDS\fanfare.wav">
+      <Name>fanfare</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\fanfare.png">
+      <Name>fanfare</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\star.png">
+      <Name>star</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\puff.png">
+      <Name>puff</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\star_small.png">
+      <Name>star_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\NUMBERS\0.png">
+      <Name>0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\NUMBERS\4.png">
+      <Name>4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\NUMBERS\5.png">
+      <Name>5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\NUMBERS\6.png">
+      <Name>6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\NUMBERS\7.png">
+      <Name>7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\NUMBERS\8.png">
+      <Name>8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="GRAPHICS\NUMBERS\9.png">
+      <Name>9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GRAPHICS\outro.png">
+      <Name>outro</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
+  <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
